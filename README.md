@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white&style=for-the-badge" /><img src="https://img.shields.io/badge/FastAPI-0.110.0-green?logo=fastapi&logoColor=white&style=for-the-badge" /><img src="https://img.shields.io/badge/uvicorn-0.29.0-blue?logo=python&style=for-the-badge" /><img src="https://img.shields.io/badge/Pytest-8.1.1-yellow?style=for-the-badge" /><img src="https://img.shields.io/badge/Docker-Supported-informational?logo=docker&style=for-the-badge" />
 
-# Weather Forecast Platform
+# Weather Web Platform
 
 Проект реализован в рамках тестового задания для o-complex. Приложение позволяет пользователю получить актуальный прогноз погоды для выбранного города с возможностью автодополнения, сохранением истории запросов и статистикой по частоте введённых городов.
 
