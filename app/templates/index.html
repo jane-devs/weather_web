@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>☀️ Погода+</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>☀️ Погода плюс</h1>
+        </div>
+
+
+        <form method="post">
+            <input type="text" name="city" id="city-input" placeholder="Введите город" required autocomplete="off">
+            <button type="submit"> Показать </button>
+        </form>
+
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        {% if weather %}
+        <div class="weather-summary">
+            <h2>Погода в городе {{ translated_city or weather.city }} на два дня</h2>
+
+            <div class="day-block">
+                <h3>На сегодня {{ weather.today.date }}</h3>
+                <p>Температура от {{ weather.today.temp_min }}°C до {{ weather.today.temp_max }}°C</p>
+                <p>Состояние: {{ weather.today.condition_text }} {{ weather.today.condition_icon }}</p>
+                <p>Осадки: {{ weather.today.precipitation }} мм</p>
+            </div>
+
+            <div class="day-block">
+                <h3>На завтра {{ weather.tomorrow.date }}</h3>
+                <p>Температура от {{ weather.today.temp_min }}°C до {{ weather.today.temp_max }}°C</p>
+                <p>Состояние: {{ weather.tomorrow.condition_text }} {{ weather.tomorrow.condition_icon }}</p>
+                <p>Осадки: {{ weather.tomorrow.precipitation }} мм</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if history %}
+        <div class="city-history">
+            <h3>Последние запросы:</h3>
+            <ul>
+                {% for city in history %}
+                <li><a href="/?city={{ city }}">{{ city }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        const input = document.getElementById("city-input");
+        input.addEventListener("input", async () => {
+            const query = input.value;
+            if (query.length >= 2) {
+                const res = await fetch(`/api/autocomplete?query=${query}`);
+                const suggestions = await res.json();
+                input.setAttribute("list", "suggestions");
+
+                let datalist = document.getElementById("suggestions");
+                if (!datalist) {
+                    datalist = document.createElement("datalist");
+                    datalist.id = "suggestions";
+                    document.body.appendChild(datalist);
+                }
+                datalist.innerHTML = "";
+                suggestions.forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city;
+                    datalist.appendChild(option);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+    background: linear-gradient(to right, #fdfbfb, #ebedee);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffffd9;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 600px;
+}
+
+form {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 60%;
+}
+
+.city-history ul {
+    list-style: none;
+    padding: 0;
+}
+
+.city-history li a {
+    color: #3182ce;
+    text-decoration: none;
+}
+
+.city-history li a:hover {
+    text-decoration: underline;
+}
+
+button {
+  background-color: #4a90e2; /* насыщенный синий */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #357ABD; /* чуть темнее при наведении */
+}
+
+.error-message {
+  color: #d32f2f; /* ярко-красный */
+  background-color: #f9d6d5;
+  border: 1px solid #d32f2f;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+/* Стили для блока погоды */
+.weather-card ul {
+  list-style-type: none; /* убрать маркеры */
+  padding: 0;
+}
+
+.weather-card ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.weather-card ul li strong {
+  font-weight: 700;
+  margin-right: 6px;
+  color: #333;
+}
