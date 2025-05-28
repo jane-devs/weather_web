@@ -74,8 +74,8 @@
 ## Установка
 
 ```
-git clone https://github.com/jane-devs/weather-web.git
-cd weather-web
+git clone https://github.com/jane-devs/weather_web.git
+cd weather_web
 python -m venv venv
 source venv/bin/activate  # или venv\Scripts\activate на Windows
 pip install -r requirements.txt
